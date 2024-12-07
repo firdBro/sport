@@ -1,0 +1,459 @@
+/* Основные стили */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background: #f5f5f5;
+}
+
+/* Стили для баннера */
+.banner {
+    width: 100%;
+    height: 150px; /* В два раза меньше */
+    background: linear-gradient(to right, #000428, #004e92);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #fff;
+}
+
+.banner-content {
+    text-align: center;
+    z-index: 2;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.banner-content.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.banner-content h1 {
+    margin: 0;
+    font-size: 24px; /* Уменьшено */
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.banner-content p {
+    font-size: 14px; /* Уменьшено */
+    color: #ddd;
+}
+
+.banner-content .buttons {
+    margin-top: 10px; /* Уменьшено */
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.banner-content button {
+    padding: 8px 16px; /* Уменьшено */
+    font-size: 14px; /* Уменьшено */
+    border: none;
+    background: #28a745;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.banner-content button:hover {
+    background: #218838;
+    transform: scale(1.05);
+}
+
+.animation {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: shake 5s infinite alternate ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes shake {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(2%, 2%); }
+    50% { transform: translate(-2%, -2%); }
+    75% { transform: translate(2%, -2%); }
+    100% { transform: translate(-2%, 2%); }
+}
+
+.rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('rain.png') repeat center center;
+    animation: moveRain 1s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes moveRain {
+    0% { background-position: 0 0; }
+    100% { background-position: -100px 100px; }
+}
+
+.lightning {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    opacity: 0;
+    animation: flash 3s linear infinite;
+}
+
+@keyframes flash {
+    0%, 10%, 20%, 30%, 50%, 70%, 100% { opacity: 0; }
+    15%, 25%, 35%, 45%, 75% { opacity: 1; }
+}
+
+/* Навигация */
+.navbar {
+    background: #004e92;
+    padding: 10px 0;
+    position: sticky;
+    top: 150px; /* Соответствует высоте баннера */
+    z-index: 999;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.navbar ul li {
+    margin: 0;
+}
+
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.navbar ul li a:hover {
+    background: #003366;
+    border-radius: 5px;
+    transform: scale(1.05);
+}
+/* Контент */
+#content {
+    padding: 160px 20px 20px 20px; /* Соответствует высоте баннера */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+section h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #004e92;
+}
+
+.media {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.media img, .media video {
+    max-width: 45%;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #004e92;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.media img:hover, .media video:hover {
+    transform: scale(1.05);
+}
+
+/* Статьи */
+article {
+    margin-bottom: 30px;
+}
+
+article h3 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    color: #004e92;
+    transition: transform 0.3s;
+}
+
+article p {
+    margin: 0 0 10px 0;
+    color: #333;
+    transition: transform 0.3s;
+}
+
+article h3:hover, article p:hover {
+    transform: scale(1.05);
+}
+
+article img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #004e92;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+article img:hover {
+    transform: scale(1.05);
+}
+
+.charts {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.charts img {
+    max-width: 45%;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #004e92;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.charts img:hover {
+    transform: scale(1.05);
+}
+
+/* Фанатские комментарии */
+.fan-comments {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.comment {
+    padding: 15px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    transition: transform 0.3s;
+}
+
+.comment h4 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #004e92;
+    transition: transform 0.3s;
+}
+
+.comment p {
+    margin: 0;
+    color: #333;
+}
+
+.comment:hover, .comment h4:hover {
+    transform: scale(1.05);
+}
+
+/* Ставки */
+.bets-offers {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.offer {
+    padding: 15px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    flex: 1;
+    min-width: 250px;
+    transition: transform 0.3s;
+}
+
+.offer h4 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #004e92;
+    transition: transform 0.3s;
+}
+
+.offer p {
+    margin: 0;
+    color: #333;
+}
+
+.offer:hover, .offer h4:hover {
+    transform: scale(1.05);
+}
+
+/* Казино */
+.casino-games {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.game {
+    padding: 15px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    flex: 1;
+    min-width: 250px;
+    transition: transform 0.3s;
+}
+
+.game h4 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #004e92;
+    transition: transform 0.3s;
+}
+
+.game p {
+    margin: 0;
+    color: #333;
+}
+
+.game:hover, .game h4:hover {
+    transform: scale(1.05);
+}
+
+.demo-bet {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background: #ff9800;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.demo-bet:hover {
+    background: #e68a00;
+    transform: scale(1.05);
+}
+
+/* Нижний бардюр */
+.footer {
+    background: #004e92;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 768px) {
+    .banner {
+        height: 200px; /* Увеличено для мобильных */
+    }
+
+    .banner-content h1 {
+        font-size: 20px;
+    }
+
+    .banner-content p {
+        font-size: 14px;
+    }
+
+    .banner-content button {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    #content {
+        padding: 250px 20px 20px 20px; /* Соответствует увеличенной высоте баннера */
+    }
+}
+
+/* Дополнительные стили для улучшения адаптивности */
+.media img {
+    width: 100%;
+    height: auto;
+}
+
+.fan-comments .comment {
+    flex: 1;
+    min-width: 250px;
+}
+
+.bets-offers .offer, .casino-games .game {
+    min-width: 100%;
+}
+
+@media (max-width: 480px) {
+    .banner {
+        height: 150px; /* Соответствует уменьшенной высоте баннера */
+    }
+
+    .banner-content h1 {
+        font-size: 18px;
+    }
+
+    .banner-content p {
+        font-size: 12px;
+    }
+
+    .banner-content button {
+        padding: 6px 10px;
+        font-size: 10px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .media {
+        flex-direction: column;
+    }
+
+    .charts {
+        flex-direction: column;
+    }
+}
+.sexy {
+    font-size: 25px;
+    height: 30px;
+    font-family: sans-serif;
+    color: hotpink;
+}
